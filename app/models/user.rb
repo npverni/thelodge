@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   has_many :stats, :order => 'created_at DESC'
   
   
-  named_scope :logged_in_users, :conditions => {:is_logged_in => true}
+  named_scope :logged_in_users, :conditions => {}
   
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.

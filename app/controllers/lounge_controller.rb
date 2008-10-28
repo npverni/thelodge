@@ -1,5 +1,5 @@
 class LoungeController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => :test
   
   def index
     @stat = Stat.new
@@ -7,9 +7,9 @@ class LoungeController < ApplicationController
     @users = User.logged_in_users
     #@stats = Stat.find_recent_for_users
     
-    render :juggernaut do |page|
-      page.insert_html :top, '#stats', :partial => 'lounge/stat', :object => @current_user
-    end
+#    render :juggernaut do |page|
+#      page.insert_html :top, '#stats', :partial => 'lounge/stat', :object => @current_user
+#    end
   end
 
 
@@ -18,10 +18,14 @@ class LoungeController < ApplicationController
     render :nothing => true
   end
   
+  def test
+    render :juggernaut do |page|
+      page.alert(    params[:client_id])
+    end
+  end
+  
   def remove_user
     id = current_user.id
-    current_user.is_logged_in = false
-    current_user.save
     
     render :juggernaut do |page|
       page << "$('#stat-#{id}).remove();"

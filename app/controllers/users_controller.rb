@@ -17,8 +17,6 @@ class UsersController < ApplicationController
       # reset session
       self.current_user = @user # !! now logged in
 
-      @user.is_logged_in = true
-      @user.save
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
     else

@@ -14,8 +14,6 @@ class SessionsController < ApplicationController
       # button. Uncomment if you understand the tradeoffs.
       # reset_session
       self.current_user = user
-      user.is_logged_in = true
-      user.save
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
       redirect_back_or_default('/')
@@ -29,8 +27,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    current_user.is_logged_in = false
-    current_user.save    
     logout_killing_session!
     flash[:notice] = "You have been logged out."
     redirect_back_or_default('/')
