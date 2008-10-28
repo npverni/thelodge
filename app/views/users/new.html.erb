@@ -1,0 +1,27 @@
+<% if @user.errors.any? %>
+<div id="errors">
+	<%= error_messages_for :user %>
+</div>
+<% end %>
+<div id="center" style="height: 24em;margin-top: -12em;"><div class="inner">
+<h1>Sign up (or <%= link_to "Login", login_path, { :title => "Login" } %>)</h1>
+	<% @user.password = @user.password_confirmation = nil %>
+
+	
+	<% form_for :user, :url => users_path do |f| -%>
+	<p><%= label_tag 'login' %><br/>
+	<%= f.text_field :login %></p>
+	<br />
+	<p><%= label_tag 'email' %><br/>
+	<%= f.text_field :email %></p>
+	<br />
+	<p><%= label_tag 'password' %><br/>
+	<%= f.password_field :password %></p>
+	<br />
+	<p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
+	<%= f.password_field :password_confirmation %></p>
+	<br />
+	<p><%= submit_tag 'Sign up' %></p>
+	<% end -%>
+
+</div></div>

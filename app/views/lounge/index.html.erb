@@ -1,0 +1,14 @@
+<%= juggernaut %>
+<div id="stats">
+	<%= render :partial => 'stat', :collection => @users %>	
+	<br style="clear:both" />
+</div>
+<% content_for :dock do %>
+	<% form_remote_for [current_user,@stat] do |f| %>
+		<p>
+			<label>What are you working on?</label>
+	    	<%= f.text_field :msg, :id => 'new-stat' %>		
+			<input type="submit" value="submit">
+		</p>			
+	<% end %>
+<% end %>

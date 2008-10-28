@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>	
+	<head>
+		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">	
+		<%= javascript_include_tag :defaults, :juggernaut %>
+		<%= javascript_include_tag 'juggernaut/jquerynaut' %>		
+		<%= javascript_include_tag 'jquery.json' %>			
+		<%= stylesheet_link_tag 'reset' %>		
+		<%= stylesheet_link_tag 'screen' %>
+		<%= yield :additional_js %>	
+		<!--[if lt IE 7.]>
+			<script defer type="text/javascript" src="/javascripts/pngfix.js"></script>
+		<![endif]-->
+		<title><%= @title %>The Lounge</title>
+		<%#= juggernaut %>      
+		
+	</head>	
+	<body>
+		<div id="main">
+
+			<%= yield%>			
+		</div>
+		
+		<% if logged_in? %>
+			<div id="dock">
+				<div style="float:left">
+					<%= yield :dock %>
+				</div>
+				<%= render :partial => 'users/user_bar'%>			
+				<br style="clear:both" />
+			</div>		
+		<% end %>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<%= msg_box %>
+	
+
+
+<div id="center"><div class="inner">
+	<h1>Log In (or <%= link_to "Sign up", signup_path, { :title => "Signup" } %>)</h1>
+
+	<% form_tag session_path do -%>
+	<p><%= label_tag 'login' %><br />
+	<%= text_field_tag 'login', @login %></p>
+
+	<br />
+	<p><%= label_tag 'password' %><br/>
+	<%= password_field_tag 'password', nil %></p>
+
+	<!-- Uncomment this if you want this functionality
+	<p><%= label_tag 'remember_me', 'Remember me' %>
+	<%= check_box_tag 'remember_me', '1', @remember_me %></p>
+	-->
+
+		<input type="submit" value="submit">
+		
+	<br style="clear:both" />
+	<% end -%>
+	
+</div>
+</div>
