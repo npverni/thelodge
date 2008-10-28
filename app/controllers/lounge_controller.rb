@@ -6,13 +6,15 @@ class LoungeController < ApplicationController
     
     @users = User.logged_in_users
     #@stats = Stat.find_recent_for_users
+    
+    render :juggernaut do |page|
+      page.insert_html :top, '#stats', :partial => 'lounge/stat', :object => @current_user
+    end
   end
 
 
   def add_user
-    render :juggernaut do |page|
-      page.insert_html :top, '#stats', :partial => 'lounge/stat', :object => @current_user
-    end
+
     render :nothing => true
   end
   
@@ -26,4 +28,6 @@ class LoungeController < ApplicationController
     end
     render :nothing => true
   end
+  
+  
 end
