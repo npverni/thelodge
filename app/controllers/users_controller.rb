@@ -24,4 +24,8 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def show
+    render :text => "not yet"
+  end
 end
