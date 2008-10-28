@@ -1,7 +1,0 @@
-  - :port: 5001
-    :host: scrapple.blenderbox.com
-    :public_host: scrapple.blenderbox.com
-    :public_port: 5001
-    :secret_key: 3ccee56ad373bf9933a2128a8e9423e5
-    :environment: :production
-
