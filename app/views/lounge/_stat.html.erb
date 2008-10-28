@@ -10,7 +10,7 @@
 			<h1><%= user.login %><span> is working on</span></h1>
 			<% unless stat.blank? %>
 				<p><%= h stat.msg %></p>			
-				<em><%= stat.created_at.strftime("%I:%m%p %b-%d") %></em>									
+				<em><%= stat.created_at.strftime("%I:%M%p %b-%d") %></em>									
 			<% else %>
 				<p>...</p>
 			<% end %>
