@@ -26,6 +26,6 @@ class UsersController < ApplicationController
   end
   
   def show
-    render :text => "not yet"
+    @user = User.find(params[:id],:include => :stats)
   end
 end
