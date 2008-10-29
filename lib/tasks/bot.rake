@@ -12,9 +12,9 @@ end
 
 task :launch_bot  => :environment do
   require 'net/toc'
-  authorized = ["nathanblend"]
+  #authorized = ["nathanblend"]
   Net::TOC.new("BlenderboxBot", "curmudg30n") do | message, buddy |
-    if authorized.member? buddy.screen_name
+    if true
       begin
         result = message.chomp.gsub(/<[^>]+>/,"")
         u = User.find_by_login(buddy.screen_name)
