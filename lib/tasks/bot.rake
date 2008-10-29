@@ -17,24 +17,24 @@ task :launch_bot  => :environment do
     if true
       begin
         result = message.chomp.gsub(/<[^>]+>/,"")
-        u = User.find_by_login(buddy.screen_name)
-        s = u.stats.new
-        s.msg = result
-        s.save
-        result = "you said:" + message.chomp.gsub(/<[^>]+>/,"")        
-        
-        
-        render :juggernaut do |page|
-          if @success
-            page["stat-#{s.user.id}"].replace :partial => 'lounge/stat', :object => u
-            page << "$('#new-stat').val('');"
-          else
-            page.alert ('oops, something bad happened.  did you fill out all the fields?')
+        u = User.find_by_aim_screenname(buddy.screen_name)
+        if u.blank?
+          buddy.send_im 'Invalid screenname'
+        else
+          s = u.stats.new
+          s.msg = result
+          s.save
+          result = "you said:" + message.chomp.gsub(/<[^>]+>/,"")                        
+          render :juggernaut do |page|
+            if @success
+              page["stat-#{s.user.id}"].replace :partial => 'lounge/stat', :object => u
+              page << "$('#new-stat').val('');"
+            else
+              page.alert ('oops, something bad happened.  did you fill out all the fields?')
+            end
           end
+          buddy.send_im result.to_s if result.respond_to? :to_s
         end
-        
-        
-        buddy.send_im result.to_s if result.respond_to? :to_s
       rescue Exception => e
         buddy.send_im "#{e.class}: #{e}"
       end

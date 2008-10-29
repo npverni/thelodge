@@ -3,7 +3,7 @@
 	<%= error_messages_for :user %>
 </div>
 <% end %>
-<div id="center" style="height: 24em;margin-top: -12em;"><div class="inner">
+<div id="center" style="height: 27em;margin-top: -13.5em;"><div class="inner">
 <h1>Sign up (or <%= link_to "Login", login_path, { :title => "Login" } %>)</h1>
 	<% @user.password = @user.password_confirmation = nil %>
 
@@ -15,6 +15,9 @@
 	<p><%= label_tag 'email' %><br/>
 	<%= f.text_field :email %></p>
 	<br />
+	<p><label>AIM Screenname</label><br/>
+	<%= f.text_field :aim_screenname %></p>
+	<br />	
 	<p><%= label_tag 'password' %><br/>
 	<%= f.password_field :password %></p>
 	<br />
