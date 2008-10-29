@@ -1,0 +1,23 @@
+<div id="center" style="height: 19em;margin-top: -9.5em;">
+	<div class="inner">
+		<h1>
+			Edit your account
+		</h1><% form_for @user, :html => { :multipart => true } do |f| -%>
+		<p>
+			<%= f.label :login %><br>
+			<%= f.text_field :login %>
+		</p><br>
+		<p>
+			<%= f.label :aim_screenname %><br>
+			<%= f.text_field :aim_screenname %>
+		</p><br>
+		<p>
+			<label>Avatar</label><br>
+			<%- if @user.avatar.file? %> <%= image_tag @user.avatar.url() %><br>
+			<%-end %> <%= f.file_field :avatar %>
+		</p><br>
+		<p>
+			<%= submit_tag 'Save' %> or <a href="/">Cancel</a>
+		</p><% end -%>
+	</div>
+</div>

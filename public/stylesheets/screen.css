@@ -142,6 +142,11 @@ div#center input[type="password"]{
 	margin-top:5px;
 }
 
+div#center input[type="file"]{
+	color:#ff6a00;
+	background-color:#111;
+}
+
 div#center input[type="submit"]{
 	background-color:#111;
 	border:0px;

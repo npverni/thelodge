@@ -1,3 +1,4 @@
+<h1>Log</h1><%= link_to 'edit', edit_user_path(current_user) %>
 <em>more to come here, for now there is a log</em><br /><br />
 <% for stat in @user.stats %>
 	<em><%= stat.created_at.strftime(" %b-%d %I:%m%p") %></em>: <%= stat.msg %><br />

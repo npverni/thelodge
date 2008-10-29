@@ -26,6 +26,26 @@ class UsersController < ApplicationController
   end
   
   def show
+    login_required
     @user = User.find(params[:id],:include => :stats)
+  end
+  
+  def edit
+    login_required
+    @user = current_user
+  end
+  
+  def update
+    login_required
+    @user = current_user
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'Your account was successfully updated.'
+        format.html { redirect_to '/' }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
   end
 end
