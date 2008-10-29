@@ -17,6 +17,7 @@ task :launch_bot  => :environment do
     if true
       begin
         result = message.chomp.gsub(/<[^>]+>/,"")
+
         u = User.find_by_aim_screenname(buddy.screen_name)
         if u.blank?
           buddy.send_im 'Invalid screenname'
@@ -24,7 +25,8 @@ task :launch_bot  => :environment do
           s = u.stats.new
           s.msg = result
           s.save
-          result = "you said:" + message.chomp.gsub(/<[^>]+>/,"")                        
+          #result = "you said:" + message.chomp.gsub(/<[^>]+>/,"")                        
+           response = "have fun with that"
           render :juggernaut do |page|
             if @success
               page["stat-#{s.user.id}"].replace :partial => 'lounge/stat', :object => u
