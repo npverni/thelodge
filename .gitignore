@@ -5,4 +5,4 @@ config/database.yml
 db/*.sql
 public/files/*.*
 public/files
-
+public/avatars/*

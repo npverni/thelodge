@@ -3,9 +3,7 @@
 
 <div class="stat" id="stat-<%= user.id %>">
 	<div class="inner">
-		<% if user.login == 'nathanblend' %>
-			<img src="images/avatars/nathan.jpg" width="30px" height="30px" />
-		<% end %>
+		<%- if user.avatar.file? %> <%= image_tag user.avatar.url(:thumb) %><%-end %>
 		<div class="content">
 			<h1><%= user.login %><span> is working on</span></h1>
 			<% unless stat.blank? %>

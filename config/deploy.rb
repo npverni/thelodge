@@ -32,7 +32,7 @@ namespace :compost do
     ['database.yml', 'juggernaut.yml','juggernaut_hosts.yml'].each do |file|
       run "cp #{deploy_to}/#{shared_dir}/config/#{file} #{current_release}/config/#{file}"
     end
-#    run "ln -nfs #{deploy_to}/shared/photos #{release_path}/public/photos"
+    run "ln -nfs #{deploy_to}/shared/avatars #{release_path}/public/avatars"
   end
 end
 after "deploy:symlink", "compost:do_custom_symlinks"
