@@ -21,20 +21,13 @@ task :launch_bot  => :environment do
         s = u.stats.new
         s.msg = result
         s.save
-        result = "you said:" + message.chomp.gsub(/<[^>]+>/,"")        
+        #result = "you said:" + message.chomp.gsub(/<[^>]+>/,"")        
+        response = "have fun with that"
+        
+        Juggernaut.send_to_all("$('#msg-#{u.id}').html('#{s.msg}');")
         
         
-        render :juggernaut do |page|
-          if @success
-            page["stat-#{s.user.id}"].replace :partial => 'lounge/stat', :object => u
-            page << "$('#new-stat').val('');"
-          else
-            page.alert ('oops, something bad happened.  did you fill out all the fields?')
-          end
-        end
-        
-        
-        buddy.send_im result.to_s if result.respond_to? :to_s
+        buddy.send_im response if result.respond_to? :to_s
       rescue Exception => e
         buddy.send_im "#{e.class}: #{e}"
       end
