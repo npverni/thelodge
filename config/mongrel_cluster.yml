@@ -1,4 +1,4 @@
-cwd: /home/www/thelounge/capapp/current
+cwd: /home/www/thelodge/capapp/current
 log_file: log/mongrel.log
 port: "9007"
 environment: production
