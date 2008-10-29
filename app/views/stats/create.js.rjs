@@ -1,6 +1,7 @@
 if @success
   page["stat-#{@stat.user.id}"].replace :partial => 'lounge/stat', :object => @current_user
   page << "$('#new-stat').val('');"
+  page << "doGrowl('update from #{@current_user.login}','#{@stat.msg}');"  
 else
   page.alert ('oops, something bad happened.  did you fill out all the fields?')
 end

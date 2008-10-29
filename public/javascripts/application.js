@@ -1,2 +1,17 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+jQuery(document).ready(function($) {
+
+	$.growl.settings.noticeCss = {
+
+		position: 'relative',
+		'background-color':'#000',
+		padding: '20px'
+	};
+
+})
+
+
+
+
+function doGrowl(title,body){
+//	$.growl(title,body);
+}
