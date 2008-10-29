@@ -1,9 +1,9 @@
 require 'mongrel_cluster/recipes'
 default_run_options[:pty] = true
  
-set :application, "thelounge"
+set :application, "thelodge"
 
-set :repository, "git@github.com:npverni/thelounge.git"
+set :repository, "git@github.com:npverni/thelodge.git"
 #set :branch, "master"
  
 set :scm, "git"
@@ -13,13 +13,13 @@ set :password, "d3p77r"
 set :user, "deploy"
 set :runner, "deploy"
  
-role :app,  "thelounge.blenderbox.com"
-role :web,  "thelounge.blenderbox.com"
-role :db,   "thelounge.blenderbox.com", :primary => true
+role :app,  "thelodge.blenderbox.com"
+role :web,  "thelodge.blenderbox.com"
+role :db,   "thelodge.blenderbox.com", :primary => true
  
 set :deploy_via, :export
  
-set :deploy_to, "/home/www/thelounge/capapp"
+set :deploy_to, "/home/www/thelodge/capapp"
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
 
