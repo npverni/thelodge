@@ -1,5 +1,6 @@
 .DS_STORE
 log/*.log
+log/*.yml
 tmp/**/*
 config/database.yml
 db/*.sql
