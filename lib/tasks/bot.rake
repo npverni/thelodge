@@ -12,8 +12,7 @@ end
 
 task :launch_bot  => :environment do
   require 'net/toc'
-  #authorized = ["nathanblend"]
-  Net::TOC.new("BlenderboxBot", "curmudg30n") do | message, buddy |
+  Net::TOC.new("YOUR_IM_BOTS_SCREENNAME", "YOUR_IM_BOTS_PASSWORD") do | message, buddy |
     if true
       begin
         result = message.chomp.gsub(/<[^>]+>/,"")

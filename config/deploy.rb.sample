@@ -7,19 +7,19 @@ set :repository, "git@github.com:npverni/thelodge.git"
 #set :branch, "master"
  
 set :scm, "git"
-set :scm_passphrase, "d3p77r"
-set :password, "d3p77r" 
+set :scm_passphrase, ""
+set :password, "" 
 
-set :user, "deploy"
-set :runner, "deploy"
+set :user, ""
+set :runner, ""
  
-role :app,  "thelodge.blenderbox.com"
-role :web,  "thelodge.blenderbox.com"
-role :db,   "thelodge.blenderbox.com", :primary => true
+role :app,  "yourserver.com"
+role :web,  "yourserver.com"
+role :db,   "yourserver.com", :primary => true
  
 set :deploy_via, :export
  
-set :deploy_to, "/home/www/thelodge/capapp"
+set :deploy_to, "/u/apps/thelodge"
 set :mongrel_conf, "#{current_path}/config/mongrel_cluster.yml"
 
 
